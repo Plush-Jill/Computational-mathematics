@@ -1,0 +1,13 @@
+//
+// Created by bocka on 10.09.2024.
+//
+
+#ifndef SOLVINGTHECUBICEQUATION_SIDE_H
+#define SOLVINGTHECUBICEQUATION_SIDE_H
+
+enum Side {
+    LEFT, RIGHT,
+};
+
+
+#endif //SOLVINGTHECUBICEQUATION_SIDE_H

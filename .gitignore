@@ -1,0 +1,12 @@
+
+*.xml
+*.json
+*.ninja
+*.iml
+*.cmake
+*.log
+*.ninja_log
+*.ninja_deps
+*.exe
+**/CMakeFiles
+SolvingTheCubicEquation/cmake-build-debug/CMakeCache.txt
