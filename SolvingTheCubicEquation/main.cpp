@@ -6,6 +6,8 @@
 #include <fstream>
 #include <format>
 
+
+
 int main() {
     CubicEquationRootsFinder rootsFinder = CubicEquationRootsFinder(10e-5, 0);
     std::ifstream testDataFile = std::ifstream("CubicEquationTestOrdered.txt");
