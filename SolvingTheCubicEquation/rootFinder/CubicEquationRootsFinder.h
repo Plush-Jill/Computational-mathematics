@@ -22,6 +22,7 @@ private:
     Interval findRootInterval(const Equation& equation, Side rootSide, Interval startInterval) const;
     Interval findRootInterval(const Equation& equation, Side rootSide);
     EquationRoot findRootInInterval(Equation equation, Interval interval) const;
+    int checkRootDegree(Equation equation, EquationRoot root);
 
 public:
     std::vector<EquationRoot> findRoots(Equation equation);

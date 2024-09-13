@@ -28,6 +28,9 @@ public:
     double calculate(double variableValue);
 
     std::string toString();
+    Equation& operator=(Equation const& equation) {
+        return *this;
+    }
 };
 
 

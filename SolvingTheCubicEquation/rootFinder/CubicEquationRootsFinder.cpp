@@ -66,6 +66,9 @@ std::vector<EquationRoot> CubicEquationRootsFinder::findRoots(Equation equation)
 
     }
 
+//    if (roots.size() == 1) {
+//        roots[0].setDegree(checkRootDegree(equation, roots[0]));
+//    }
     return roots;
 }
 
@@ -176,4 +179,19 @@ std::string CubicEquationRootsFinder::getDiscriminantInfo(Equation equation) {
 
 double CubicEquationRootsFinder::getEpsilon() const {
     return epsilon;
+}
+
+int CubicEquationRootsFinder::checkRootDegree(Equation equation, EquationRoot root) {
+    int degree = 0;
+    Equation sideEquation = equation;
+    for (int i {}; i < 3; ++i) {
+        if (sideEquation.calculate(root.getValue()) == 0) {
+            ++degree;
+        } else {
+            break;
+        }
+        sideEquation.differentiate();
+    }
+
+    return degree;
 }
