@@ -6,16 +6,14 @@
 #define SOLVINGTHECUBICEQUATION_EQUATION_H
 #include <vector>
 #include "EquationMember.h"
+#include "../rootFinder/service/Interval.h"
 
 class Equation {
 private:
     std::vector<EquationMember> nonZeroDegreeMembers;
     double zeroDegreeMember;
 public:
-    double getZeroDegreeMember() const;
-
-
-public:
+    [[nodiscard]] bool isHasRootInInterval(Interval interval) const;
     double getScalarByDegree(int degree);
     double getDiscriminant();
     int getMaxDegree();
@@ -24,13 +22,9 @@ public:
     Equation(std::vector<double> scalars);
     Equation(double mainScalar, double a, double b, double c);
     Equation(Equation const &equation);
-    void printEquation();
-    double calculate(double variableValue);
-
+    [[nodiscard]] double calculate(double variableValue) const;
     std::string toString();
-    Equation& operator=(Equation const& equation) {
-        return *this;
-    }
+
 };
 
 

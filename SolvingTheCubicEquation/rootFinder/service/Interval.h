@@ -5,7 +5,6 @@
 #ifndef SOLVINGTHECUBICEQUATION_INTERVAL_H
 #define SOLVINGTHECUBICEQUATION_INTERVAL_H
 #include "Side.h"
-#include "../../Equation/Equation.h"
 #include <string>
 
 
@@ -17,11 +16,10 @@ private:
     void setEnd(double value);
 public:
     std::string toString();
-    bool isContainsRoot(Equation equation, double epsilon);
-    double getMiddle() const;
+    [[nodiscard]] double getMiddle() const;
     Interval(double begin, double end);
-    double getBegin() const;
-    double getEnd() const;
+    [[nodiscard]] double getBegin() const;
+    [[nodiscard]] double getEnd() const;
     void expandInterval(Side side, double value);
 
 };

@@ -35,13 +35,6 @@ void Interval::setEnd(double value) {
     this->end = value;
 }
 
-bool Interval::isContainsRoot(Equation equation, double epsilon) {
-    double fa = equation.calculate(getBegin());
-    double fb = equation.calculate(getEnd());
-    bool result = (fa < 0 && fb > 0) || (fa > 0 && fb < 0);
-    return result;
-}
-
 std::string Interval::toString() {
     return "[" + std::to_string(begin) + ", " + std::to_string(end) + "]";
 }

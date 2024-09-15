@@ -14,10 +14,6 @@ Equation::Equation(std::vector<double> scalars) {
 
 }
 
-void Equation::printEquation() {
-    std::cout << this->toString() << std::endl;
-}
-
 std::string Equation::toString() {
     std::string result;
     for (int i {}; i < nonZeroDegreeMembers.size(); ++i) {
@@ -72,7 +68,7 @@ Equation::Equation(const Equation &equation) {
     this->zeroDegreeMember = equation.zeroDegreeMember;
 }
 
-double Equation::calculate(double variableValue) {
+double Equation::calculate(double variableValue) const {
     double sum {};
     for (EquationMember x : nonZeroDegreeMembers) {
         sum += x.calculate(variableValue);
@@ -85,6 +81,9 @@ double Equation::getScalarByDegree(int degree) {
     return (degree == 0) ? zeroDegreeMember : nonZeroDegreeMembers[nonZeroDegreeMembers.size() - degree].getScalar();
 }
 
-double Equation::getZeroDegreeMember() const {
-    return zeroDegreeMember;
+bool Equation::isHasRootInInterval(Interval interval) const {
+    double fa = this->calculate(interval.getBegin());
+    double fb = this->calculate(interval.getEnd());
+    bool result = (fa < 0 && fb > 0) || (fa > 0 && fb < 0);
+    return result;
 }

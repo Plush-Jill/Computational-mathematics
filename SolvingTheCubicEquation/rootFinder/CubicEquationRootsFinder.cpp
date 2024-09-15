@@ -74,10 +74,11 @@ std::vector<EquationRoot> CubicEquationRootsFinder::findRoots(Equation equation)
 
 Interval CubicEquationRootsFinder::findRootInterval(const Equation& equation, Side rootSide, Interval startInterval) const {
     int k = 0;
-    while (1){
-        if (startInterval.isContainsRoot(equation, epsilon)) {
-            break;
-        }
+//    while (!startInterval.isContainsRoot(equation, epsilon)){
+    while (!equation.isHasRootInInterval(startInterval)){
+//        if (startInterval.isContainsRoot(equation, epsilon)) {
+//            break;
+//        }
         startInterval.expandInterval(rootSide, delta);
         ++k;
     }
@@ -95,7 +96,8 @@ Interval CubicEquationRootsFinder::findRootInterval(const Equation& equation, Si
 EquationRoot CubicEquationRootsFinder::findRootInInterval(Equation equation, Interval interval) const {
     while (std::abs(equation.calculate(interval.getMiddle())) >= epsilon){
         Interval leftHalf = Interval(interval.getBegin(), interval.getMiddle());
-        if (leftHalf.isContainsRoot(equation, epsilon)) {
+//        if (leftHalf.isContainsRoot(equation, epsilon)) {
+        if (equation.isHasRootInInterval(leftHalf)) {
             interval = leftHalf;
         } else {
             interval = Interval(interval.getMiddle(), interval.getEnd());
